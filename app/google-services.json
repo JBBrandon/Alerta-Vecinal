@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "305815309083",
+    "project_id": "alerta-vecinal-5700b",
+    "storage_bucket": "alerta-vecinal-5700b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305815309083:android:1ddc7f7f06914b17aee1be",
+        "android_client_info": {
+          "package_name": "pa3.conti.cruz_taracaya_"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApEMh-bhRu8UPGjnXI890WByi1JuXirqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
