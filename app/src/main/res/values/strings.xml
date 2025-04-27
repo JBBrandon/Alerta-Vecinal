@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Cruz_Taracaya_Romani</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="registrarse">¿No tienes cuenta? Regístrate aquí</string>
+    <string name="error_contrasena_corta">La contraseña debe tener al menos 8 caracteres</string>
+    <string name="registro">Registro de Usuario</string>
+    <string name="celular">Número de Celular</string>
+    <string name="email">Email</string>
+    <string name="registrarses">Registrarse </string>
+    <string name="usuario">Usuario</string>
+    <string name="default_web_client_id">TU_WEB_CLIENT_ID</string>
 </resources>
