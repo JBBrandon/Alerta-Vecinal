@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import pa3.conti.cruz_taracaya_.network.ApiClient;
 import pa3.conti.cruz_taracaya_.network.ApiService;
 import pa3.conti.cruz_taracaya_.R;
+import pa3.conti.cruz_taracaya_romani.MapsActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -95,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                 .apply();
 
         // Redirigir a MainActivity
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, MapsActivity.class));
         finish();
     }
 

@@ -82,16 +82,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         FloatingActionButton fabMyLocation = findViewById(R.id.fabMyLocation);
         FloatingActionButton fabAddReport = findViewById(R.id.fabAddReport);
         fabAddReport.setOnClickListener(v -> {
-            // Solo abrir el cuadro de diálogo si hay una ubicación seleccionada
-            if (ubicacionSeleccionada != null) {
-                mostrarDialogoDescripcion(ubicacionSeleccionada); // Llamamos al método de diálogo con la ubicación seleccionada
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                mFusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
+                    if (location != null) {
+                        ubicacionSeleccionada = new LatLng(location.getLatitude(), location.getLongitude());
+                        mostrarDialogoDescripcion(ubicacionSeleccionada);
+                    } else {
+                        Toast.makeText(this, "No se pudo obtener tu ubicación", Toast.LENGTH_SHORT).show();
+                    }
+                });
             } else {
-                Toast.makeText(MapsActivity.this, "Por favor, selecciona una ubicación en el mapa.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Se necesitan permisos de ubicación", Toast.LENGTH_SHORT).show();
             }
         });
-
         fabMyLocation.setOnClickListener(v -> centrarEnMiUbicacion());
-        fabAddReport.setOnClickListener(v -> mostrarDialogoTipoReporte());
 
         // Obtener el SupportMapFragment
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
