@@ -16,4 +16,8 @@
     <string name="mostrar_lista_de_reportes">Mostrar lista de reportes</string>
     <string name="centrar_en_mi_ubicaci_n">Centrar en mi ubicación</string>
     <string name="a_adir_reporte">Añadir reporte</string>
+    <string name="describa_lo_que_ocurri">Describa lo que ocurrió...</string>
+    <string name="descripci_n_detallada">Descripción detallada:</string>
+    <string name="tipo_de_incidente">Tipo de incidente:</string>
+    <string name="ubicaci_n_seleccionada">Ubicación seleccionada:</string>
 </resources>
