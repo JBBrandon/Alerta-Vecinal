@@ -18,6 +18,13 @@ import retrofit2.Response;
 import pa3.conti.cruz_taracaya_.models.LoginRequest;
 
 import pa3.conti.cruz_taracaya_.models.LoginResponse;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 
 
@@ -26,6 +33,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsuario, etPassword;
     private Button btnLogin;
     private TextView tvRegistro;
+    private SignInButton btnGoogle;
+    private GoogleSignInClient googleSignInClient;
+    private static final int RC_SIGN_IN = 9001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +44,25 @@ public class LoginActivity extends AppCompatActivity {
 
         inicializarVistas();
         configurarListeners();
-    }
+        configurarGoogleSignIn();
 
+    }
+    private void configurarGoogleSignIn() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                // Opcional: Si usas Firebase Auth
+                .requestIdToken(getString(R.string.default_web_client_id)) // Agrega esto
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
+    }
     private void inicializarVistas() {
         etUsuario = findViewById(R.id.etUsuario);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         tvRegistro = findViewById(R.id.tvRegistro);
+        btnGoogle = findViewById(R.id.btnGoogle);
+
     }
 
     private void configurarListeners() {
@@ -48,6 +70,47 @@ public class LoginActivity extends AppCompatActivity {
         tvRegistro.setOnClickListener(v -> {
             startActivity(new Intent(this, RegistroActivity.class));
         });
+        btnGoogle.setOnClickListener(v -> iniciarSesionGoogle());
+    }
+    private void iniciarSesionGoogle() {
+        Intent signInIntent = googleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            manejarResultadoGoogle(task);
+        }
+    }
+
+    private void manejarResultadoGoogle(Task<GoogleSignInAccount> task) {
+        try {
+            GoogleSignInAccount account = task.getResult(ApiException.class);
+            autenticacionGoogleExitosa(account);
+        } catch (ApiException e) {
+            mostrarError("Error en autenticación Google: " + e.getStatusCode());
+        }
+    }
+
+    private void autenticacionGoogleExitosa(GoogleSignInAccount account) {
+        // Aquí obtienes los datos del usuario:
+        String nombre = account.getDisplayName();
+        String email = account.getEmail();
+        String id = account.getId();
+
+        // Guardar en SharedPreferences
+        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        prefs.edit()
+                .putString("username", nombre)
+                .putString("email", email)
+                .apply();
+
+        // Redirigir a MainActivity
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
     private void validarLogin() {

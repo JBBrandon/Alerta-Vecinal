@@ -9,5 +9,11 @@
     <string name="email">Email</string>
     <string name="registrarses">Registrarse </string>
     <string name="usuario">Usuario</string>
-
+    <string name="default_web_client_id">TU_WEB_CLIENT_ID</string>
+    <string name="usuario_o_email">Usuario o Email</string>
+    <string name="si_ya_tienes_cuenta_inicia_sesi_n">Si ya tienes cuenta, inicia sesión</string>
+    <string name="o_inicia_con">O inicia con</string>
+    <string name="mostrar_lista_de_reportes">Mostrar lista de reportes</string>
+    <string name="centrar_en_mi_ubicaci_n">Centrar en mi ubicación</string>
+    <string name="a_adir_reporte">Añadir reporte</string>
 </resources>

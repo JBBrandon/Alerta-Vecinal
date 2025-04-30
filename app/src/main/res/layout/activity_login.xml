@@ -5,20 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:id="@+id/main"> <!-- Se añade el ID 'main' aquí -->
+    android:padding="20dp"
+    android:background="#F1F1F1"
+    android:gravity="center">
 
     <!-- Campo de Usuario -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:errorEnabled="true">
+        app:errorEnabled="true"
+        android:layout_marginBottom="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Usuario o Email"/>
+            android:hint="@string/usuario_o_email"
+            android:textColor="#212121"
+            android:inputType="textEmailAddress"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:backgroundTint="@android:color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Campo de Contraseña -->
@@ -26,32 +33,67 @@
         android:id="@+id/tilPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:errorEnabled="true">
+        app:errorEnabled="true"
+        android:layout_marginBottom="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/contrasena"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:textColor="#212121"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:backgroundTint="@android:color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Botón de Login -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="@string/iniciar_sesion"
-        android:layout_marginTop="16dp"/>
+        android:textColor="@android:color/white"
+        android:backgroundTint="#2196F3"
+        android:layout_marginTop="24dp"
+        android:textSize="16sp"
+        android:layout_gravity="center"/>
 
     <!-- Enlace para Registrarse -->
     <TextView
         android:id="@+id/tvRegistro"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/registrarse"
-        android:textColor="@color/blue"
-        android:layout_marginTop="8dp"
-        android:gravity="center"/>
+        android:textColor="#2196F3"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"/>
 
+    <!-- Texto de Opciones Adicionales -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/o_inicia_con"
+        android:textColor="#757575"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:textSize="14sp"/>
+
+    <!-- Contenedor para botones sociales -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <!-- Botón Google -->
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btnGoogle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"/>
+    </LinearLayout>
 </LinearLayout>

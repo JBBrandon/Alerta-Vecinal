@@ -5,21 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="#F1F1F1"
+    android:gravity="center">
+
 
     <!-- Usuario -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:errorEnabled="true">
+        app:errorEnabled="true"
+        android:layout_marginBottom="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/usuario"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:backgroundTint="@android:color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Celular -->
@@ -27,14 +35,19 @@
         android:id="@+id/tilCelular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:errorEnabled="true">
+        app:errorEnabled="true"
+        android:layout_marginBottom="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etCelular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/celular"
-            android:inputType="phone"/>
+            android:inputType="phone"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:backgroundTint="@android:color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Email -->
@@ -42,13 +55,19 @@
         android:id="@+id/tilEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:errorEnabled="true">
+        app:errorEnabled="true"
+        android:layout_marginBottom="16dp">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:backgroundTint="@android:color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Contraseña -->
@@ -56,30 +75,41 @@
         android:id="@+id/tilPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:errorEnabled="true">
+        app:errorEnabled="true"
+        android:layout_marginBottom="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/contrasena"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:backgroundTint="@android:color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Botón de Registro -->
     <Button
         android:id="@+id/btnRegistros"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:text="@string/registrarses"
+        android:textColor="@android:color/white"
         android:layout_marginTop="16dp"
-        android:text="@string/registrarses"/>
+        android:backgroundTint="#2196F3"
+        android:textSize="16sp"/>
+
+    <!-- Enlace para iniciar sesión -->
     <TextView
         android:id="@+id/tvIniciaSesion"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Si ya tienes cuenta, inicia sesión"
-        android:textColor="@color/blue"
-        android:gravity="center" />
-
+        android:text="@string/si_ya_tienes_cuenta_inicia_sesi_n"
+        android:textColor="#2196F3"
+        android:gravity="center"
+        android:textSize="14sp" />
 
 </LinearLayout>

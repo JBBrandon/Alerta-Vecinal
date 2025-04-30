@@ -3,6 +3,7 @@ package pa3.conti.cruz_taracaya_romani;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -107,17 +108,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
     private void toggleListaReportes() {
         listaVisible = !listaVisible;
-        recyclerView.setVisibility(listaVisible ? View.VISIBLE : View.GONE);
 
         if (listaVisible) {
+            // Mostrar la lista y cargar los reportes
+            recyclerView.setVisibility(View.VISIBLE);
             cargarReportes();
+        } else {
+            // Ocultar la lista
+            recyclerView.setVisibility(View.GONE);
         }
     }
+
     private void cargarReportes() {
         DatabaseReference refReportes = FirebaseDatabase.getInstance().getReference("reportes");
         refReportes.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d("DEBUG", "Datos recibidos: " + snapshot.getChildrenCount() + " reportes");
                 List<Reporte> reportes = new ArrayList<>();
                 for (DataSnapshot reporteSnapshot : snapshot.getChildren()) {
                     Reporte reporte = reporteSnapshot.getValue(Reporte.class);
@@ -129,12 +136,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // Ordenar por timestamp (más recientes primero)
                 Collections.sort(reportes, (r1, r2) -> Long.compare(r2.timestamp, r1.timestamp));
 
-                reporteAdapter = new ReporteAdapter(reportes, MapsActivity.this::centrarEnReporte);
-                recyclerView.setAdapter(reporteAdapter);
+                // Actualizar el adaptador existente en lugar de crear uno nuevo
+                reporteAdapter.actualizarDatos(reportes);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("DEBUG", "Error al cargar: " + error.getMessage());
                 Toast.makeText(MapsActivity.this, "Error al cargar reportes", Toast.LENGTH_SHORT).show();
             }
         });

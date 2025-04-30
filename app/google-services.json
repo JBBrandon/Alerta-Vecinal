@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "305815309083",
+    "firebase_url": "https://alerta-vecinal-5700b-default-rtdb.firebaseio.com",
     "project_id": "alerta-vecinal-5700b",
     "storage_bucket": "alerta-vecinal-5700b.firebasestorage.app"
   },
@@ -12,7 +13,20 @@
           "package_name": "pa3.conti.cruz_taracaya_"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "305815309083-ee2ihhi2b29ojebpf993o7ad4704qbn1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pa3.conti.cruz_taracaya_",
+            "certificate_hash": "fb5f83c8b043a1d9f539114e5a6e37ca0c73df5a"
+          }
+        },
+        {
+          "client_id": "305815309083-ahvan4qrnnt8r55jmm131oriv56q7tg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyApEMh-bhRu8UPGjnXI890WByi1JuXirqQ"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "305815309083-ahvan4qrnnt8r55jmm131oriv56q7tg3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

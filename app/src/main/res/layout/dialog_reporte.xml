@@ -3,39 +3,59 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="#FFFFFF">
 
+    <!-- Título de Ubicación -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ubicación seleccionada:"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#212121"
+        android:layout_marginBottom="8dp"/>
 
+    <!-- Ubicación seleccionada -->
     <TextView
         android:id="@+id/tvUbicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:textSize="14sp"
+        android:textColor="#757575"
+        android:layout_marginBottom="16dp"/>
 
+    <!-- Título de Tipo de incidente -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tipo de incidente:"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#212121"
+        android:layout_marginBottom="8dp"/>
 
+    <!-- Spinner para seleccionar tipo de incidente -->
     <Spinner
         android:id="@+id/spinnerTipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/white"
+        android:elevation="2dp"/>
 
+    <!-- Título de Descripción -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Descripción detallada:"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#212121"
+        android:layout_marginBottom="8dp"/>
 
+    <!-- Campo de Descripción -->
     <EditText
         android:id="@+id/etDescripcion"
         android:layout_width="match_parent"
@@ -43,5 +63,9 @@
         android:hint="Describa lo que ocurrió..."
         android:inputType="textMultiLine"
         android:gravity="top"
-        android:padding="8dp"/>
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:background="@drawable/edit_text_background"
+        android:layout_marginBottom="24dp"/>
+
 </LinearLayout>

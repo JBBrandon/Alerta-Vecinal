@@ -78,4 +78,9 @@ public class ReporteAdapter extends RecyclerView.Adapter<ReporteAdapter.ReporteV
             tvResumen.setText(resumen);
         }
     }
+    public void actualizarDatos(List<Reporte> nuevosReportes) {
+        this.reportes.clear();
+        this.reportes.addAll(nuevosReportes);
+        notifyDataSetChanged();
+    }
 }
