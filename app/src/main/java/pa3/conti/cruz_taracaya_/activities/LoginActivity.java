@@ -108,8 +108,8 @@ public class LoginActivity extends AppCompatActivity {
                 .putString("email", email)
                 .apply();
 
-        // Redirigir a MainActivity
-        startActivity(new Intent(this, MainActivity.class));
+        // Redirigir a MapsActivity
+        startActivity(new Intent(this, MapsActivity.class));
         finish();
     }
 
